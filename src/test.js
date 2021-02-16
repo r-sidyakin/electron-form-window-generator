@@ -1,4 +1,4 @@
-const {app, BrowserWindow, ipcMain} = require("electron");
+const {app} = require("electron");
 const openForm = require('./index');
 
 app.whenReady().then(test);

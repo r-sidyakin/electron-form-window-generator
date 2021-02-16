@@ -82,13 +82,14 @@ module.exports = function openForm(inputs, options = null, parentWindow = null) 
         })
 
         let form = await formG.generate(inputs, '<br>')
-        const promptUrl = url.format({
+
+        const htmlUrl = url.format({
             protocol: 'file',
             slashes: true,
             pathname: path.join(__dirname, '../page', 'index.html'),
             hash: id
         });
-
+        console.log('htmlurl',htmlUrl)
 
         const getFormHtml = (event) => {
             event.returnValue = form;
@@ -125,6 +126,6 @@ module.exports = function openForm(inputs, options = null, parentWindow = null) 
 
         formWindow.on('unresponsive', unresponsiveListener);
 
-        await formWindow.loadURL(promptUrl);
+        await formWindow.loadURL(htmlUrl);
     })
 }
