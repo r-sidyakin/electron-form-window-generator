@@ -1,0 +1,8 @@
+# Project exclude paths
+/node_modules/
+/page/electron-form-window-generator.js
+/page/electron-form-window-generator.js.map
+/src/index.js
+/src/index.js.map
+/src/test.js
+/src/test.js.map
