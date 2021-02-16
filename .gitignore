@@ -1,5 +1,2 @@
 # Project exclude paths
 /node_modules/
-/page/electron-form-window-generator.js
-/src/index.js
-/src/test.js
