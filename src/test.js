@@ -7,22 +7,22 @@ async function test() {
     let inputs = [
         {
             type: "text",
-            name: "telegramToken",
+            name: "name1",
             attributes: {
-                placeholder :'Enter telegram token',
+                placeholder :'Enter text',
                 required:true
             },
-            label: 'Telegram token'
+            label: 'Text'
         },
         {
             type: "text",
-            name: "allowedUsernames",
+            name: "name2",
             attributes: {
-                placeholder :'Enter login or logins separated by ,',
+                placeholder :'Enter other text',
                 required:true
 
             },
-            label: 'Allowed usernames'
+            label: 'Other text'
         },
     ]
     console.log(await openForm(inputs , {width: 640, height: 480, resizable:true}))
