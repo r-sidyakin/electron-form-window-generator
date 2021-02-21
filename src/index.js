@@ -22,7 +22,7 @@ module.exports = function openForm(inputs, options = null, parentWindow = null) 
                 alwaysOnTop: false,
                 icon: null,
                 menuBarVisible: false,
-                skipTaskbar: true
+                skipTaskbar: false
             },
             options || {}
         );
