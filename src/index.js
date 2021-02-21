@@ -2,7 +2,7 @@ const {app, BrowserWindow, ipcMain} = require("electron");
 
 const formG = require("html-form-generator");
 const path = require("path");
-const url =  require("url");
+const url = require("url");
 
 const DEFAULT_WIDTH = 480;
 const DEFAULT_HEIGHT = 240;
@@ -76,8 +76,8 @@ module.exports = function openForm(inputs, options = null, parentWindow = null) 
             type: "submit",
             name: "Enter",
             classes: ["w3-btn w3-black"],
-            attributes:{
-                id:"enter"
+            attributes: {
+                id: "enter"
             }
         })
 
@@ -89,13 +89,13 @@ module.exports = function openForm(inputs, options = null, parentWindow = null) 
             pathname: path.join(__dirname, '../page', 'index.html'),
             hash: id
         });
-        console.log('htmlurl',htmlUrl)
 
         const getFormHtml = (event) => {
             event.returnValue = form;
         }
 
         const submit = (event, arg) => {
+            this.submitted = true;
             resolve(arg);
             cleanup();
         }
@@ -120,8 +120,10 @@ module.exports = function openForm(inputs, options = null, parentWindow = null) 
 
         formWindow.on('closed', () => {
             formWindow = null;
-            cleanup();
-            resolve(null);
+            if(!this.submitted) {
+                cleanup();
+                resolve(null);
+            }
         });
 
         formWindow.on('unresponsive', unresponsiveListener);
