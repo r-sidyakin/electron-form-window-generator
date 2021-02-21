@@ -55,7 +55,7 @@ module.exports = function openForm(inputs, options = null, parentWindow = null) 
             if (!input.classes)
                 input.classes = []
 
-            if (input.type === 'text')
+            if (input.type === 'text' || input.type === 'password')
                 input.classes.push('w3-input')
 
             if (input.type === 'button')
