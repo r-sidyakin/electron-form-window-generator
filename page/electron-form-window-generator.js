@@ -2,7 +2,6 @@ const {ipcRenderer} = require("electron");
 const id = document.location.hash.replace('#', '');
 let formHTML = ipcRenderer.sendSync(`electron-form-window-generator:get-formHTML:${id}`)
 let form = document.forms[0];
-let buttonEnter = document.getElementById('#enter');
 
 document.getElementById("form-container").innerHTML = formHTML;
 
@@ -19,10 +18,8 @@ function returnFormValues() {
         return false
 
     let data = {}
-    for (let input of Array.from(form.querySelectorAll("input"))) {
-        // @ts-ignore
+    for (let input of Array.from(form.querySelectorAll("input")))
         data[input.name] = input.value
-    }
 
     ipcRenderer.sendSync(`electron-form-window-generator:submit:${id}`, data)
 }
