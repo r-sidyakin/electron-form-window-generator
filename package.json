@@ -12,6 +12,10 @@
   "devDependencies": {
     "electron": "^11.2.3"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+"
+  },
   "dependencies": {
     "bluebird": "^3.7.2",
     "html-form-generator": "^1.5.0"

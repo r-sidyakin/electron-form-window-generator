@@ -1,4 +1,4 @@
-const {app, BrowserWindow, ipcMain} = require("electron");
+const {BrowserWindow, ipcMain} = require("electron");
 
 const formG = require("html-form-generator");
 const path = require("path");
@@ -44,7 +44,9 @@ module.exports = function openForm(inputs, options = null, parentWindow = null) 
             title: options_.title,
             icon: options_.icon || undefined,
             webPreferences: {
-                nodeIntegration: true
+                nodeIntegration: true,
+                contextIsolation: false,
+                enableRemoteModule: true,
             }
         });
 
