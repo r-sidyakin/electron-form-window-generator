@@ -18,7 +18,7 @@ function returnFormValues() {
         return false
 
     let data = {}
-    for (let input of Array.from(form.querySelectorAll("input")))
+    for (let input of Array.from(form.querySelectorAll("input,select")))
         data[input.name] = input.value
 
     ipcRenderer.sendSync(`electron-form-window-generator:submit:${id}`, data)

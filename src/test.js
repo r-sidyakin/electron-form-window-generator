@@ -6,6 +6,19 @@ app.whenReady().then(test);
 async function test() {
     let inputs = [
         {
+            type: "select",
+            name: "language",
+            label: 'Language',
+            options: {
+                a:'1',
+                b:'2',
+            },
+            attributes: {
+                size: 1,
+                required: true,
+            },
+        },
+        {
             type: "text",
             name: "name1",
             attributes: {
