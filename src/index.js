@@ -49,7 +49,6 @@ module.exports = function openForm(inputs, options = null, parentWindow = null) 
                 enableRemoteModule: true,
             }
         });
-        formWindow.webContents.openDevTools()
         formWindow.setMenu(null);
         formWindow.setMenuBarVisibility(options_.menuBarVisible);
 
