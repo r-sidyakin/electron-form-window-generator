@@ -83,7 +83,7 @@ module.exports = function openForm(inputs, options = null, parentWindow = null) 
         })
 
         let form = await formG.generate(inputs, '<br>')
-
+        let submitted = false;
         const htmlUrl = url.format({
             protocol: 'file',
             slashes: true,
@@ -96,7 +96,7 @@ module.exports = function openForm(inputs, options = null, parentWindow = null) 
         }
 
         const submit = (event, arg) => {
-            this.submitted = true;
+            submitted = true;
             resolve(arg);
             cleanup();
         }
@@ -121,7 +121,7 @@ module.exports = function openForm(inputs, options = null, parentWindow = null) 
 
         formWindow.on('closed', () => {
             formWindow = null;
-            if(!this.submitted) {
+            if (!submitted) {
                 cleanup();
                 resolve(null);
             }
